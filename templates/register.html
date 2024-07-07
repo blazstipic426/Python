@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-navbar {
+            background-color: #ffae00; /* Custom background color */
+            color: #fff; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.vectorkhazana.com/assets/images/products/dove-.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Register Page
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" style="width: 50%;" required>
+                <small id="usernameHelp" class="form-text text-muted">Enter your username.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" style="width: 50%;" required>
+                <small id="emailHelp" class="form-text text-muted">Enter your email.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" style="width: 50%;" required>
+            </div>
+
+            <input type="submit" class="btn btn-outline-warning" value="Register">
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

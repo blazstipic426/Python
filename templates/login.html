@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-navbar {
+            background-color: #ffae00; /* Custom background color */
+            color: #fff; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.vectorkhazana.com/assets/images/products/dove-.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Login Page
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <label for="username">Email</label>
+                <input type="username" class="form-control" id="eusername" name="username" aria-describedby="emailHelp" style="width: 50%;" required>
+                <small id="emailHelp" class="form-text text-muted">Enter your email.</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" style="width: 50%;" required>
+            </div>
+            <button type="submit" class="btn btn-outline-warning">Login</button>
+            <a href="/register" class="btn btn-outline-warning">Register</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

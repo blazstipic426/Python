@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-navbar {
+            background-color: #ffae00;
+            color: #fff;
+        }
+        .navbar-brand {
+            margin-right: auto; /* Pushes the brand/logo to the left */
+        }
+        .navbar-nav {
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Horizontally center the navbar links */
+            align-items: center; /* Vertically center the navbar links */
+        }
+        .navbar-nav .nav-link {
+            padding: 0 10px;
+        }
+        .navbar-text {
+            margin-left: auto; /* Pushes the text and logout to the right */
+            display: flex;
+            align-items: center; /* Align items vertically in case of multiline content */
+        }
+        .navbar-text p {
+            margin-bottom: 0; /* Remove default margin-bottom for paragraph */
+        }
+        .greeting {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+{% if username %}
+<nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.vectorkhazana.com/assets/images/products/dove-.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Home page
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mx-auto">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </div>
+        </div>
+        <div class="navbar-text">
+            <p class="greeting">{{ username }}</p>
+            <a class="nav-link" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+{% else %}
+<p>You are not logged in. Please <a href="/login">Login</a> to access the home page.</p>
+{% endif %}
+
+
+
+<br>
+<a href="/add_post" class="btn btn-outline-warning">Add posts</a>
+
+{% for row in data %}
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ row[0] }}</h5>
+      <p class="card-text">{{ row[2] }}</p>
+      <data>{{ row[1] }}</data>
+      <a href="{{ url_for('posts_add', name=row[0]) }}" class="btn btn-outline-warning">Update</a>
+    </div>
+  </div>
+  {% endfor %}
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
